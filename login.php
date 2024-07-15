@@ -68,12 +68,12 @@
        <div class="form-container">
         <h1 class="fw-bold" class="mb-3">Bon Appétit Register</h1>
         <h6 class="fst-italic" class="mb-5">Doesn't have an account? Create an account and start your Recipe Road</h6>
-        <form>
+        <form action="dblogin.php" method="POST">
             <div class="mb-3">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
             </div>
             <div class="mb-3">
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-outline-success">Login</button>
             <p class="mt-3">Doesn't have an account yet? <a href="register.html">Sign Up</a></p>
