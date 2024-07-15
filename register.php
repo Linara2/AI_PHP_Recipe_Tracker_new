@@ -85,6 +85,14 @@
             <button type="submit" class="btn btn-outline-success">Sign Up</button>
             <p class="mt-3">Already have an account? <a href="login.html">Login</a></p>
           </form>
+          <?php
+            if(isset($_GET['error'])) {
+              echo('
+                <div class="alert alert-danger mt-3" role="alert">
+                  User with this email already exists
+                </div>');
+            }
+          ?>
       </div>
         </div>
     </div>
