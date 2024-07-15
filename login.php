@@ -23,10 +23,10 @@
                 <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="register.html">Register</a>
+                <a class="nav-link" aria-current="page" href="register.php">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="login.html">Login</a>
+                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -68,22 +68,15 @@
        <div class="form-container">
         <h1 class="fw-bold" class="mb-3">Bon Appétit Register</h1>
         <h6 class="fst-italic" class="mb-5">Doesn't have an account? Create an account and start your Recipe Road</h6>
-        <form action="dbregister.php" method="POST">
+        <form>
             <div class="mb-3">
-              <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Full name">
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
             </div>
             <div class="mb-3">
-              <input type="text" class="form-control" id="userName" name="userName" placeholder="Username">
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <div class="mb-3">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email Address">
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-              <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-outline-success">Sign Up</button>
-            <p class="mt-3">Already have an account? <a href="login.html">Login</a></p>
+            <button type="submit" class="btn btn-outline-success">Login</button>
+            <p class="mt-3">Doesn't have an account yet? <a href="register.html">Sign Up</a></p>
           </form>
       </div>
         </div>
