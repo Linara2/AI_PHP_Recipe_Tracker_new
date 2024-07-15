@@ -1,0 +1,37 @@
+<mxfile host="65bd71144e">
+    <diagram id="ull73dYdModQ1DHthHD1" name="Page-1">
+        <mxGraphModel dx="832" dy="571" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="50" width="680" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Email" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="250" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Username" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="190" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Password" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="560" y="310" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Register" style="whiteSpace=wrap;html=1;fillColor=#1BA1E2;fontColor=#ffffff;strokeColor=#006EAF;" parent="1" vertex="1">
+                    <mxGeometry x="565" y="420" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Sign Up" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="590" y="90" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Name" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="130" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="dashed=0;labelPosition=right;align=left;shape=mxgraph.gmdl.checkbox;strokeColor=none;fillColor=#009587;strokeWidth=2;aspect=fixed;sketch=0;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="380" width="10" height="10" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="I agree to Terms &amp;amp; Conditions" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="370" width="200" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
