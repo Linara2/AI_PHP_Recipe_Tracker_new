@@ -11,7 +11,7 @@
     <link rel="manifest" href="images/faviocns/site.webmanifest">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"></nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">Bon Appétit</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,9 @@
       </nav>
 
       <style>
+        body{
+          background-color: beige;
+        }
         .navbar-brand{
           font-weight:800;
           background: linear-gradient(to right, #e18ea1, #961600);
@@ -46,9 +49,12 @@
           font-size: 30px;
         }
         .container {
-          max-width: 600px;
+          max-width: 470px;
           margin-top: 50px;
           text-align: center;
+          background-color: lightblue;
+          border-radius: 10px;
+          padding: 20px;
         }
         h6{
           color: rgb(124, 132, 177);
