@@ -78,8 +78,15 @@
             <button type="submit" class="btn btn-outline-success">Login</button>
             <p class="mt-3">Doesn't have an account yet? <a href="register.php">Sign Up</a></p>
           </form>
+          <?php
+            if(isset($_GET['error'])) {
+              echo('
+                <div id="alertbox" class="alert alert-danger mt-3" role="alert">
+                  Username or Password is incorrect
+                </div>');
+            }
+          ?>
       </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
