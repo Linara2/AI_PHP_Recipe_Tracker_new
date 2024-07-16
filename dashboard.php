@@ -64,7 +64,7 @@
         }
       </style>
       
-      <div class="container-md">
+      <div class="container-md text-center mt-5" style="max-width: 600px;">
         <h1 class="fw-bold" class="mb-3">Bon Appétit Dashboard</h1>
 
         </div>

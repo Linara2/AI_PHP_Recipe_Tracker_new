@@ -76,7 +76,7 @@
               <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-outline-success">Login</button>
-            <p class="mt-3">Doesn't have an account yet? <a href="register.html">Sign Up</a></p>
+            <p class="mt-3">Doesn't have an account yet? <a href="register.php">Sign Up</a></p>
           </form>
       </div>
         </div>

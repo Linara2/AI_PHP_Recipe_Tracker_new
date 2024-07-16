@@ -76,26 +76,32 @@
               <input type="text" class="form-control" id="userName" name="userName" placeholder="Username">
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email Address">
+              <input type="email" onkeyup="hideAlertBox()" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Email Address">
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-outline-success">Sign Up</button>
-            <p class="mt-3">Already have an account? <a href="login.html">Login</a></p>
+            <p class="mt-3">Already have an account? <a href="login.php">Login</a></p>
           </form>
           <?php
             if(isset($_GET['error'])) {
               echo('
-                <div class="alert alert-danger mt-3" role="alert">
+                <div id="alertbox" class="alert alert-danger mt-3" role="alert">
                   User with this email already exists
                 </div>');
             }
           ?>
       </div>
-        </div>
     </div>
+
+    <script>
+      function hideAlertBox() {
+        const alertBox = document.getElementById("alertbox");
+        alertBox.style.display = "none";
+      }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
