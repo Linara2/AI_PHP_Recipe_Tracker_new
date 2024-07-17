@@ -83,23 +83,23 @@
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
         <h1 class="fw-bold" class="mb-3">Bon Appétit Notes App</h1>
-        <form>
+        <form action="dbrecipe.php" method="POST">
             <div class="form-row">
                 <div class="col">
                     <label for="recipeName" class="sr-only">Recipe Name</label>
-                    <input type="text" id="recipeName" class="form-control" placeholder="Recipe Name">
+                    <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name">
                 </div>
                 <div class="col">
                     <label for="description" class="sr-only">Description</label>
-                    <input type="text" id="description" class="form-control" placeholder="Description">
+                    <input type="text" id="description" name="description" class="form-control" placeholder="Description">
                 </div>
                 <div class="col">
                     <label for="instructions" class="sr-only">Instructions</label>
-                    <input type="text" id="instructions" class="form-control" placeholder="Instructions">
+                    <input type="text" id="instructions" name="instructions" class="form-control" placeholder="Instructions">
                 </div>
                 <div class="col">
                     <label for="calories" class="sr-only">Calories</label>
-                    <input type="text" id="calories" class="form-control" placeholder="Calories">
+                    <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories">
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-outline-danger">Add Recipe</button>
@@ -107,7 +107,6 @@
             </div>
         </form>
         </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
