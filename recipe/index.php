@@ -79,11 +79,23 @@
         .form-row .btn{
             margin-top: 10px;
         }
+        .alert {
+        margin-top: 150px;
+        max-width: 300px;
+        padding: 10px;
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        }
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
         <h1 class="fw-bold" class="mb-4">Bon Appétit Notes App</h1>
-        <form action="dbrecipe.php" method="POST">
+        <div id="alertBox" class="alert alert-success d-none" role="alert">
+        A new recipe has been added!
+        </div>
+        <form id="recipeForm" action="dbrecipe.php" method="POST">
             <div class="form-row mt-5">
                 <div class="col-2">
                     <label for="recipeName" class="sr-only">Recipe Name</label>
@@ -106,8 +118,85 @@
                 </div>
             </div>
         </form>
+        <table class="table mt-5 table-striped">
+            <thead>
+                <tr>
+                    <th>Date Created</th>
+                    <th>Recipe Name</th>
+                    <th>Description</th>
+                    <th>Instructions</th>
+                    <th>Calories</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                // Establish a connection to the database
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "recipe_php";
+
+                $conn = new mysqli($servername, $username, $password, $dbname);
+
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                
+                $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe ORDER BY createdDate DESC";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>";
+                        echo "<td class=p-3>" . $row["createdDate"] . "</td>";
+                        echo "<td class=p-3>" . $row["recipeName"] . "</td>";
+                        echo "<td class=p-3>" . $row["description"] . "</td>";
+                        echo "<td class=p-3>" . $row["instructions"] . "</td>";
+                        echo "<td class=p-3>" . $row["calories"] . "</td>";
+                        echo "<td class=p-3> <a href=" . "dbrecipe.php?id=" . $row["id"] . ">Edit</a> <a href=" . "dbrecipe.php?delete=" . $row["id"] . ">Delete</a></td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='6'>No data available.</td></tr>";
+                }
+
+                // Close the connection
+                $conn->close();
+                ?>
+            </tbody>
+        </table>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      document.getElementById('recipeForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Gather form data
+        const formData = new FormData(this);
+
+        // Send form data using AJAX
+        fetch('dbrecipe.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+          // Show the alert box
+          const alertBox = document.getElementById('alertBox');
+          alertBox.classList.remove('d-none');
+
+          // Optionally, hide the alert box after a few seconds
+          setTimeout(() => {
+            alertBox.classList.add('d-none');
+            location.reload();
+          }, 2000);
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    </script>
   </body>
 </html>
