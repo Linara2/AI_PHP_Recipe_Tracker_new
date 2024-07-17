@@ -13,20 +13,20 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Bon Appétit</a>
+          <a class="navbar-brand" href="../index.html">Bon Appétit</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="register.php">Register</a>
+                <a class="nav-link" aria-current="page" href="../register.php">Register</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                <a class="nav-link active" aria-current="page" href="../login.php">Login</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -45,11 +45,6 @@
           -webkit-text-fill-color: transparent;
           font-size: 30px;
         }
-        .container {
-          max-width: 600px;
-          margin-top: 50px;
-          text-align: center;
-        }
         h6{
           color: rgb(124, 132, 177);
           font-size: medium;
@@ -62,11 +57,55 @@
           padding: 20px;
           border-radius: 10px;
         }
+        .form-row {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+        }
+        .form-row .col {
+          flex: 1;
+        }
+        .form-row .col input {
+          width: 100%;
+        }
+        .form-row .col label {
+            font-weight: bold;
+        }
+        .form-row .col:last-child {
+          flex: 0 0 auto;
+          margin-top: 10px;
+        }
+        .form-row .btn{
+            margin-top: 10px;
+        }
       </style>
       
-      <div class="container-md text-center mt-5" style="max-width: 600px;">
-        <h1 class="fw-bold" class="mb-3">Bon Appétit Dashboard</h1>
-
+      <div class="container-md text-center mt-5" style="max-width: 900px;">
+        <h1 class="fw-bold" class="mb-3">Bon Appétit Notes App</h1>
+        <form>
+            <div class="form-row">
+                <div class="col">
+                    <label for="recipeName" class="sr-only">Recipe Name</label>
+                    <input type="text" id="recipeName" class="form-control" placeholder="Recipe Name">
+                </div>
+                <div class="col">
+                    <label for="description" class="sr-only">Description</label>
+                    <input type="text" id="description" class="form-control" placeholder="Description">
+                </div>
+                <div class="col">
+                    <label for="instructions" class="sr-only">Instructions</label>
+                    <input type="text" id="instructions" class="form-control" placeholder="Instructions">
+                </div>
+                <div class="col">
+                    <label for="calories" class="sr-only">Calories</label>
+                    <input type="text" id="calories" class="form-control" placeholder="Calories">
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-danger">Add Recipe</button>
+                </div>
+            </div>
+        </form>
         </div>
     </div>
 
