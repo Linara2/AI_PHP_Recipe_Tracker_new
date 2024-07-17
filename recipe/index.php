@@ -82,22 +82,22 @@
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-3">Bon Appétit Notes App</h1>
+        <h1 class="fw-bold" class="mb-4">Bon Appétit Notes App</h1>
         <form action="dbrecipe.php" method="POST">
-            <div class="form-row">
-                <div class="col">
+            <div class="form-row mt-5">
+                <div class="col-2">
                     <label for="recipeName" class="sr-only">Recipe Name</label>
                     <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name">
                 </div>
-                <div class="col">
+                <div class="col-3">
                     <label for="description" class="sr-only">Description</label>
                     <input type="text" id="description" name="description" class="form-control" placeholder="Description">
                 </div>
-                <div class="col">
+                <div class="col-3">
                     <label for="instructions" class="sr-only">Instructions</label>
                     <input type="text" id="instructions" name="instructions" class="form-control" placeholder="Instructions">
                 </div>
-                <div class="col">
+                <div class="col-2">
                     <label for="calories" class="sr-only">Calories</label>
                     <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories">
                 </div>
