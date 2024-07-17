@@ -87,19 +87,19 @@
             <div class="form-row mt-5">
                 <div class="col-2">
                     <label for="recipeName" class="sr-only">Recipe Name</label>
-                    <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name">
+                    <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name" required>
                 </div>
                 <div class="col-3">
                     <label for="description" class="sr-only">Description</label>
-                    <input type="text" id="description" name="description" class="form-control" placeholder="Description">
+                    <input type="text" id="description" name="description" class="form-control" placeholder="Description" required>
                 </div>
                 <div class="col-3">
                     <label for="instructions" class="sr-only">Instructions</label>
-                    <input type="text" id="instructions" name="instructions" class="form-control" placeholder="Instructions">
+                    <input type="text" id="instructions" name="instructions" class="form-control" placeholder="Instructions" required>
                 </div>
                 <div class="col-2">
                     <label for="calories" class="sr-only">Calories</label>
-                    <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories">
+                    <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories" required>
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-outline-danger">Add Recipe</button>
