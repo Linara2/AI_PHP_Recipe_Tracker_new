@@ -44,4 +44,14 @@
             $stmt->close();
             $conn->close();
         }
+
+        if(isset($_GET['delid'])){
+            $delid = $_GET['delid'];
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            $sql = "DELETE FROM recipe WHERE id = '$delid'";
+            $conn->query($sql);
+            $conn->close();
+            header('Location: index.php?deleted');
+            exit();
+        }
         ?>

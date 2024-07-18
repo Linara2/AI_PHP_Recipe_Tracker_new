@@ -88,6 +88,9 @@
         top: 0;
         right: 20px;
         }
+        .modal-custom {
+            top: 30%;
+        }
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
@@ -156,7 +159,7 @@
                         echo "<td class=p-3>" . $row["description"] . "</td>";
                         echo "<td class=p-3>" . $row["instructions"] . "</td>";
                         echo "<td class=p-3>" . $row["calories"] . "</td>";
-                        echo "<td class=p-3> <a href=" . "dbrecipe.php?id=" . $row["id"] . ">Edit</a> <a href=" . "dbrecipe.php?delete=" . $row["id"] . ">Delete</a></td>";
+                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["id"] . ")'>X</button> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -169,6 +172,20 @@
             </tbody>
         </table>
         </div>
+
+        <div class="modal fade modal-custom" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Are you sure you want to delete this recipe?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>       
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
@@ -196,6 +213,16 @@
           }, 2000);
         })
         .catch(error => console.error('Error:', error));
+      });
+      let deleteId;
+      function confirmDelete(id) {
+        deleteId = id;
+        const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+        confirmationModal.show();
+      }
+
+      document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
+        window.location.href = 'dbrecipe.php?delid=' + deleteId;
       });
     </script>
   </body>
