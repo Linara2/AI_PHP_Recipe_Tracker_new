@@ -72,10 +72,27 @@
         }
       </style>
       
-      <div class="container-md text-center mt-5" style="max-width: 600px;">
-        <h1 class="fw-bold" class="mb-3">Bon Appétit Dashboard</h1>
-
+    <div class="container-md text-center mt-5" style="max-width: 600px;">
+      <h1 class="fw-bold" class="mb-3">Bon Appétit Dashboard</h1>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5">
+    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black;">
+      <a href="recipe/index.php">
+        <img src="designs/images/recipe/extras.png" class="card-img-top" alt="...">
+      </a>
+        <div class="card-body text-center">
+            <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">Add Recipe</h5>
         </div>
+    </div>
+    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
+        <a href="recipe/index.php">
+            <img src="designs/images/recipe/extras.png" class="card-img-top" alt="...">
+        </a>
+        <div class="card-body text-center">
+            <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">My Recipes</h5>
+        </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
