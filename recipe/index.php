@@ -88,7 +88,7 @@
             margin-top: 10px;
         }
         .alert {
-        margin-top: 150px;
+        margin-top: 260px;
         max-width: 300px;
         padding: 10px;
         font-size: 14px;
@@ -101,9 +101,9 @@
         }
         .position-absolute {
           position: absolute;
-          top: 130px; /* Adjust as needed */
-          right: 2px; /* Adjust as needed */
-          transform: translateX(-10%); /* Move 10% towards left */
+          top: 130px; 
+          right: 2px; 
+          transform: translateX(-10%); 
         }
       </style>
       
@@ -123,7 +123,7 @@
         </div>
         </form>
         <div id="alertBox" class="alert alert-success d-none" role="alert">
-        A new recipe has been added!
+        New recipe has been added!
         </div>
         <form id="recipeForm" action="dbrecipe.php" method="POST">
             <div class="form-row mt-5">
