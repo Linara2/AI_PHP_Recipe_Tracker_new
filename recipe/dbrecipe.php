@@ -1,4 +1,12 @@
 <?php
+    session_start();
+    if (!isset($_SESSION['userloggedin'])) {
+        header("Location: ../login.php");
+        exit();
+    }
+?>
+
+<?php
         // Database connection details
         $servername = "localhost";
         $username = "root";
@@ -20,13 +28,8 @@
             $description = $_POST["description"];
             $instructions = $_POST["instructions"];
             $calories = $_POST["calories"];
-            
 
-            if(isset($_POST['email'])){
-                $email = $_POST['email'];
-            }else{
-                $email = "admin@gmail.com";
-            }
+            $email = $_SESSION["userloggedin"];
         
             // Prepare and execute the SQL query to insert the data into the "recipe" table
             $stmt = $conn->prepare("INSERT INTO recipe (recipeName, description, instructions, calories, email) VALUES (?, ?, ?, ?, ?)");

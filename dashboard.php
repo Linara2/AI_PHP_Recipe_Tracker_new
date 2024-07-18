@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['userloggedin'])) {
+        header("Location: login.php");
+        exit();
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

@@ -1,3 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['userloggedin'])) {
+        header("Location: ../login.php");
+        exit();
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -138,6 +146,7 @@
                 $username = "root";
                 $password = "";
                 $dbname = "recipe_php";
+                $email=$_SESSION['userloggedin'];
 
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -147,10 +156,10 @@
                 }
 
                 
-                $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe ORDER BY createdDate DESC";
+                $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
                 $result = $conn->query($sql);
 
-                if ($result->num_rows > 0) {
+                if ($result) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>";
