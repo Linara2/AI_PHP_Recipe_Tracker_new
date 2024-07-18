@@ -99,10 +99,29 @@
         .modal-custom {
             top: 30%;
         }
+        .position-absolute {
+          position: absolute;
+          top: 130px; /* Adjust as needed */
+          right: 2px; /* Adjust as needed */
+          transform: translateX(-10%); /* Move 10% towards left */
+        }
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-4">Bon Appétit Notes App</h1>
+        <h1 class="fw-bold" class="mb-4">Adventure of Delicacies👨‍🍳</h1>
+        <form action="" method="GET" class="row row-cols-lg-auto g-2 align-items-center position-absolute">
+         <div class="col-12">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
+          <div class="input-group">
+            
+            <div class="input-group-text">🔍</div>
+            <input type="text" name="search" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
+         </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-outline-dark">Search</button>
+        </div>
+        </form>
         <div id="alertBox" class="alert alert-success d-none" role="alert">
         A new recipe has been added!
         </div>
@@ -127,6 +146,8 @@
                 <div class="col">
                     <button type="submit" class="btn btn-outline-success">Add Recipe</button>
                 </div>
+                
+                
             </div>
         </form>
         <table class="table mt-5 table-striped">
@@ -154,9 +175,18 @@
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-
                 
-                $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
+
+                if(isset($_GET['search'])){
+                  $search=$_GET['search'];
+                  if($search==''){
+                    $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
+                  }
+                  $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' AND recipeName LIKE '%$search%' ORDER BY createdDate DESC";
+                }else{
+                  $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
+                }
+                
                 $result = $conn->query($sql);
 
                 if ($result) {
@@ -232,6 +262,22 @@
 
       document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
         window.location.href = 'dbrecipe.php?delid=' + deleteId;
+      });
+
+      document.getElementById('searchInput').addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#recipeTableBody tr');
+
+        rows.forEach(row => {
+          const recipeName = row.cells[1].textContent.toLowerCase();
+          const description = row.cells[2].textContent.toLowerCase();
+
+          if (recipeName.includes(searchTerm) || description.includes(searchTerm)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        });
       });
     </script>
   </body>
