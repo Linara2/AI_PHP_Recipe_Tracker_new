@@ -117,7 +117,7 @@
                     <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories" required>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-outline-danger">Add Recipe</button>
+                    <button type="submit" class="btn btn-outline-success">Add Recipe</button>
                 </div>
             </div>
         </form>
@@ -159,7 +159,7 @@
                         echo "<td class=p-3>" . $row["description"] . "</td>";
                         echo "<td class=p-3>" . $row["instructions"] . "</td>";
                         echo "<td class=p-3>" . $row["calories"] . "</td>";
-                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["id"] . ")'>X</button> </td>";
+                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["id"] . ")'>Delete</button> </td>";
                         echo "</tr>";
                     }
                 } else {
