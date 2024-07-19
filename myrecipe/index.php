@@ -190,8 +190,8 @@
                         echo "<td class=p-3>" . $row["createdDate"] . "</td>";
                         echo "<td class=p-3>" . $row["recipeName"] . "</td>";
                         echo "<td class=p-3>" . $row["ingredients"] . "</td>";
-                        echo "<td class=p-3>" . $row["source"] . "</td>";
-                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["recipeName"] . ")'>Delete</button> </td>";
+                        echo "<td class=p-3><a href='" . $row["source"] . "' target='_blank'>" . $row["source"] . "</a></td>";
+                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(\"" . $row["recipeName"] . "\")'>Delete</button> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -247,8 +247,8 @@
         .catch(error => console.error('Error:', error));
       });
       let deleteId;
-      function confirmDelete(id) {
-        deleteId = id;
+      function confirmDelete(recipeName) {
+        deleteId = recipeName;
         const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
         confirmationModal.show();
       }
