@@ -124,7 +124,7 @@
         <div id="alertBox" class="alert alert-success d-none" role="alert">
         New recipe has been added!
         </div>
-        <form id="recipeForm" action="dbrecipe.php" method="POST">
+        <form id="recipeForm" action="dbmyrecipe.php" method="POST">
             <div class="form-row mt-5">
                 <div class="col-2">
                     <label for="recipeName" class="sr-only">Recipe Name</label>
@@ -174,11 +174,11 @@
                 if(isset($_GET['search'])){
                   $search=$_GET['search'];
                   if($search==''){
-                    $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
+                    $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
                   }
-                  $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' AND recipeName LIKE '%$search%' ORDER BY createdDate DESC";
+                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' AND ingredients LIKE '%$search%' ORDER BY createdDate DESC";
                 }else{
-                  $sql = "SELECT id, createdDate,recipeName, description, instructions, calories FROM recipe WHERE email='$email' ORDER BY createdDate DESC";
+                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
                 }
                 
                 $result = $conn->query($sql);
@@ -189,10 +189,9 @@
                         echo "<tr>";
                         echo "<td class=p-3>" . $row["createdDate"] . "</td>";
                         echo "<td class=p-3>" . $row["recipeName"] . "</td>";
-                        echo "<td class=p-3>" . $row["description"] . "</td>";
-                        echo "<td class=p-3>" . $row["instructions"] . "</td>";
-                        echo "<td class=p-3>" . $row["calories"] . "</td>";
-                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["id"] . ")'>Delete</button> </td>";
+                        echo "<td class=p-3>" . $row["ingredients"] . "</td>";
+                        echo "<td class=p-3>" . $row["source"] . "</td>";
+                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(" . $row["recipeName"] . ")'>Delete</button> </td>";
                         echo "</tr>";
                     }
                 } else {
@@ -229,7 +228,7 @@
         const formData = new FormData(this);
 
         // Send form data using AJAX
-        fetch('dbrecipe.php', {
+        fetch('dbmyrecipe.php', {
           method: 'POST',
           body: formData
         })
@@ -255,7 +254,7 @@
       }
 
       document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-        window.location.href = 'dbrecipe.php?delid=' + deleteId;
+        window.location.href = 'dbmyrecipe.php?delid=' + deleteId;
       });
 
       document.getElementById('searchInput').addEventListener('input', function() {
@@ -264,9 +263,9 @@
 
         rows.forEach(row => {
           const recipeName = row.cells[1].textContent.toLowerCase();
-          const description = row.cells[2].textContent.toLowerCase();
+          const ingredients = row.cells[2].textContent.toLowerCase();
 
-          if (recipeName.includes(searchTerm) || description.includes(searchTerm)) {
+          if (recipeName.includes(searchTerm) || ingredients.includes(searchTerm)) {
             row.style.display = '';
           } else {
             row.style.display = 'none';

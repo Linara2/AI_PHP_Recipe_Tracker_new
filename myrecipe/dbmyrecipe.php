@@ -25,15 +25,15 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Get the form data
             $recipeName = $_POST["recipeName"];
-            $description = $_POST["description"];
-            $instructions = $_POST["instructions"];
-            $calories = $_POST["calories"];
+            $ingredients = $_POST["ingredients"];
+            $source = $_POST["source"];
+            
 
             $email = $_SESSION["userloggedin"];
         
-            // Prepare and execute the SQL query to insert the data into the "recipe" table
-            $stmt = $conn->prepare("INSERT INTO recipe (recipeName, description, instructions, calories, email) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $recipeName, $description, $instructions, $calories, $email);
+            // Prepare and execute the SQL query to insert the data into the "my_recipe" table
+            $stmt = $conn->prepare("INSERT INTO my_recipe (recipeName, ingredients, source, email) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $recipeName, $ingredients, $source, $email);
         
             // Check if the insertion was successful
             if ($stmt->execute()) {
@@ -51,7 +51,7 @@
         if(isset($_GET['delid'])){
             $delid = $_GET['delid'];
             $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "DELETE FROM recipe WHERE id = '$delid'";
+            $sql = "DELETE FROM my_recipe WHERE recipeName = '$delid'";
             $conn->query($sql);
             $conn->close();
             header('Location: index.php?deleted');
