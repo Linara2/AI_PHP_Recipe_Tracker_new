@@ -82,8 +82,8 @@
         </div>
     </div>
     <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
-        <a href="recipe/index.php">
-            <img src="designs/images/recipe/extras.png" class="card-img-top" alt="...">
+        <a href="myrecipe/index.php">
+            <img src="designs/images/recipe/bento.png" class="card-img-top" alt="...">
         </a>
         <div class="card-body text-center">
             <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">My Recipes</h5>
