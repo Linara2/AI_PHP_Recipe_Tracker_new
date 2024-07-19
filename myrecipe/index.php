@@ -107,7 +107,7 @@
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-4">Adventure of Delicacies👨‍🍳</h1>
+        <h1 class="fw-bold" class="mb-4">Discover Recipes🥣</h1>
         <form action="" method="GET" class="row row-cols-lg-auto g-2 align-items-center position-absolute">
          <div class="col-12">
           <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
@@ -131,16 +131,12 @@
                     <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name" required>
                 </div>
                 <div class="col-3">
-                    <label for="description" class="sr-only">Description</label>
-                    <input type="text" id="description" name="description" class="form-control" placeholder="Description" required>
+                    <label for="ingredients" class="sr-only">Ingredients</label>
+                    <input type="text" id="ingredients" name="ingredients" class="form-control" placeholder="Ingredients" required>
                 </div>
                 <div class="col-3">
-                    <label for="instructions" class="sr-only">Instructions</label>
-                    <input type="text" id="instructions" name="instructions" class="form-control" placeholder="Instructions" required>
-                </div>
-                <div class="col-2">
-                    <label for="calories" class="sr-only">Calories</label>
-                    <input type="text" id="calories" name="calories" class="form-control" placeholder="Calories" required>
+                    <label for="source" class="sr-only">Source Link</label>
+                    <input type="text" id="source" name="source" class="form-control" placeholder="Source Link" required>
                 </div>
                 <div class="col">
                     <button type="submit" class="btn btn-outline-success">Add Recipe</button>
