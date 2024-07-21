@@ -4,6 +4,13 @@
         header("Location: ../login.php");
         exit();
     }
+    if(isset($_GET['myrecipes']) && isset($_GET['cdate'])){
+      $lname=$_GET['myrecipes'];
+      $cdate=$_GET['cdate'];
+    }else{
+      header("Location: ../myrecipe/index.php");
+      exit;
+    }
 ?>
 
 <!doctype html>
@@ -52,9 +59,9 @@
           -webkit-text-fill-color: transparent;
           font-size: 30px;
         }
-        h6{
-          color: rgb(124, 132, 177);
-          font-size: medium;
+        h1{
+          color: black;
+          font-size: 50px;
         }
         .form-control {
           text-align: center;
@@ -104,14 +111,11 @@
           right: 2px; 
           transform: translateX(-10%); 
         }
-        .no-underline {
-        text-decoration: none;
-        color: inherit;
-        }
       </style>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-4">Discover Recipes🥣</h1>
+        <h1 class="fw-bold" class="mb-4 mt-2"><?php echo ($lname); ?><br/></h1>
+        <span class="text-secondary fs-3 mt-0 pt-0"><?php echo ($cdate); ?></span>
         <form action="" method="GET" class="row row-cols-lg-auto g-2 align-items-center position-absolute">
          <div class="col-12">
           <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
@@ -123,42 +127,25 @@
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-outline-dark">Search</button>
-        </div>
+        </div> 
         </form>
         <div id="alertBox" class="alert alert-success d-none" role="alert">
         New recipe has been added!
         </div>
-        <form id="recipeForm" action="dbmyrecipe.php" method="POST">
-            <div class="form-row mt-5">
-                <div class="col-2">
-                    <label for="recipeName" class="sr-only">Recipe Name</label>
-                    <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name" required>
-                </div>
-                <div class="col-3">
-                    <label for="ingredients" class="sr-only">Ingredients</label>
-                    <input type="text" id="ingredients" name="ingredients" class="form-control" placeholder="Ingredients" required>
-                </div>
-                <div class="col-3">
-                    <label for="source" class="sr-only">Source Link</label>
-                    <input type="text" id="source" name="source" class="form-control" placeholder="Source Link" required>
+        <form id="recipeForm" action="instructions.php?myrecipes=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST">
+            <div class="form-row mt-4">
+                <div class="col-8">
+                    <label for="instructions" class="sr-only">Instruction</label>
+                    <input type="text" id="instructions" name="instruction" class="form-control" placeholder="Add your instructions" required>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-outline-success">Add Recipe</button>
+                    <button type="submit" class="btn btn-outline-success">Add Instruction</button>
                 </div>
-                
-                
+
             </div>
         </form>
-        <table class="table mt-5 table-striped">
-            <thead>
-                <tr>
-                    <th>Date Created</th>
-                    <th>Recipe Name</th>
-                    <th>Ingredients</th>
-                    <th>Source Link</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div style="text-align: left">
+        <ul class="list-group">
                 <?php
                 // Establish a connection to the database
                 $servername = "localhost";
@@ -178,11 +165,11 @@
                 if(isset($_GET['search'])){
                   $search=$_GET['search'];
                   if($search==''){
-                    $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
+                    $sql = "SELECT itemId, instructions, status FROM instructionss WHERE recipeName='$lname'";
                   }
-                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' AND recipeName LIKE '%$search%' ORDER BY createdDate DESC";
+                  $sql = "SELECT itemId, instructions, status FROM instructionss WHERE email='$email' AND instructions LIKE '%$search%' ";
                 }else{
-                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
+                  $sql = "SELECT itemId, instructions, status FROM instructionss WHERE recipeName='$lname'";
                 }
                 
                 $result = $conn->query($sql);
@@ -190,15 +177,11 @@
                 if ($result) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
-                      $lname = $row["recipeName"];
-                      $cdate = $row["createdDate"];
-                        echo "<tr>";
-                        echo "<td class=p-3>" . $row["createdDate"] . "</td>";
-                        echo "<td class=p-3><a href='../instructions/index.php?myrecipes=".$lname . "&cdate=" . $cdate . "'>" . $lname . "</a></td>";
-                        echo "<td class=p-3>" . $row["ingredients"] . "</td>";
-                        echo "<td class=p-3><a href='" . $row["source"] . "' target='_blank'>" . $row["source"] . "</a></td>";
-                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(\"" . $row["recipeName"] . "\")'>Delete</button> </td>";
-                        echo "</tr>";
+                      echo('<li class="list-group-item fs-6">
+                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['itemId'].'">
+                        <label class="form-check-label stretched-link" for="'.$row['itemId'].'">'.$row["instructions"].'</label>
+                      ');
+                       echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"].">Delete</a></li>";
                     }
                 } else {
                     echo "<tr><td colspan='6'>No data available.</td></tr>";
@@ -207,9 +190,9 @@
                 // Close the connection
                 $conn->close();
                 ?>
-            </tbody>
-        </table>
+        </ul>
         </div>
+       </div>
 
         <div class="modal fade modal-custom" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
@@ -226,58 +209,5 @@
     </div>       
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-      document.getElementById('recipeForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // Gather form data
-        const formData = new FormData(this);
-
-        // Send form data using AJAX
-        fetch('dbmyrecipe.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-          // Show the alert box
-          const alertBox = document.getElementById('alertBox');
-          alertBox.classList.remove('d-none');
-
-          // Optionally, hide the alert box after a few seconds
-          setTimeout(() => {
-            alertBox.classList.add('d-none');
-            location.reload();
-          }, 2000);
-        })
-        .catch(error => console.error('Error:', error));
-      });
-      let deleteId;
-      function confirmDelete(recipeName) {
-        deleteId = recipeName;
-        const confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-        confirmationModal.show();
-      }
-
-      document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
-        window.location.href = 'dbmyrecipe.php?delid=' + deleteId;
-      });
-
-      document.getElementById('searchInput').addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const rows = document.querySelectorAll('#recipeTableBody tr');
-
-        rows.forEach(row => {
-          const recipeName = row.cells[1].textContent.toLowerCase();
-          const ingredients = row.cells[2].textContent.toLowerCase();
-
-          if (recipeName.includes(searchTerm) || ingredients.includes(searchTerm)) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      });
-    </script>
   </body>
 </html>

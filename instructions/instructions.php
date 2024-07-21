@@ -7,6 +7,11 @@
 ?>
 
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
         // Database connection details
         $servername = "localhost";
         $username = "root";
@@ -22,20 +27,21 @@
         }
         
         // Check if the form is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Get the form data
-            $myrecipes = $_POST["recipeName"];
-            $ingredients = $_POST["ingredients"];
-            $source = $_POST["source"];
-            $email = $_SESSION["userloggedin"];
         
-            // Prepare and execute the SQL query to insert the data into the "my_recipe" table
-            $stmt = $conn->prepare("INSERT INTO my_recipe (recipeName, ingredients, source, email) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssss", $myrecipes, $ingredients, $source, $email);
+            // Get the form data
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $instruction = $_POST["instruction"];
+            $myrecipes = $_GET["myrecipes"];
+            $cdate=$_GET["cdate"];
+
+
+            // Prepare and execute the SQL query to insert the data into the "instructionss" table
+            $stmt = $conn->prepare("INSERT INTO instructionss (instructions,recipeName) VALUES (?, ?)");
+            $stmt->bind_param("ss", $instruction, $myrecipes);
         
             // Check if the insertion was successful
             if ($stmt->execute()) {
-                header('Location: index.php?inserted');
+                header("Location: index.php?myrecipes=".$myrecipes . "&cdate=" . $cdate . "");
                 exit();
             } else {
                 echo "Error: " . $stmt->error;
@@ -49,7 +55,7 @@
         if(isset($_GET['delid'])){
             $delid = $_GET['delid'];
             $conn = new mysqli($servername, $username, $password, $dbname);
-            $sql = "DELETE FROM my_recipe WHERE recipeName = '$delid'";
+            $sql = "DELETE FROM instructionss WHERE itemId = '$delid'";
             $conn->query($sql);
             $conn->close();
             header('Location: index.php?deleted');
