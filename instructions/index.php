@@ -178,10 +178,10 @@
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                       echo('<li class="list-group-item fs-6">
-                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['itemId'].'">
-                        <label class="form-check-label stretched-link" for="'.$row['itemId'].'">'.$row["instructions"].'</label>
+                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['itemId'].'"/>
+                        <label class="form-check-label" for="'.$row['itemId'].'">'.$row["instructions"].'</label>
                       ');
-                       echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"].">Delete</a></li>";
+                       echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
                     }
                 } else {
                     echo "<tr><td colspan='6'>No data available.</td></tr>";
@@ -206,7 +206,26 @@
                 </div>
             </div>
         </div>
-    </div>       
+    </div>
+    
+    <script>
+      function updateStatus(itemId) {
+        var status = document.getElementById(itemId).checked? "completed" : "in progress";
+        var checkbox = document.getElementById(itemId);
+
+        var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'dbupdatestatus.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    var response = xhr.responseText;
+                    console.log(response);
+                }
+            };
+            xhr.send('itemId=' + itemId);
+        }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

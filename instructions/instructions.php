@@ -53,12 +53,14 @@ error_reporting(E_ALL);
         }
 
         if(isset($_GET['delid'])){
+            $myrecipes = $_GET["myrecipes"];
+            $cdate=$_GET["cdate"];
             $delid = $_GET['delid'];
             $conn = new mysqli($servername, $username, $password, $dbname);
             $sql = "DELETE FROM instructionss WHERE itemId = '$delid'";
             $conn->query($sql);
             $conn->close();
-            header('Location: index.php?deleted');
+            header("Location: index.php?myrecipes=".$myrecipes . "&cdate=" . $cdate . "");
             exit();
         }
         ?>
