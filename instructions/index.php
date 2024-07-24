@@ -178,8 +178,8 @@
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                       echo('<li class="list-group-item fs-6">
-                        <input class="form-check-input me-1" type="checkbox" value="" id="'.$row['itemId'].'"/>
-                        <label class="form-check-label" for="'.$row['itemId'].'">'.$row["instructions"].'</label>
+                      <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
+                      <label class="form-check-label ' . ($row['status'] == '1' ? 'text-decoration-line-through' : '') . '" for="' . $row['itemId'] . '">' . $row["instructions"] . '</label>
                       ');
                        echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
                     }
@@ -210,11 +210,24 @@
     
     <script>
       function updateStatus(itemId) {
-        var status = document.getElementById(itemId).checked? "completed" : "in progress";
+        
+        // Get the checkbox element
         var checkbox = document.getElementById(itemId);
 
+        // Get the label element
+        var label = document.querySelector(`label[for="${itemId}"]`);
+
+        // Check if the checkbox is checked
+        if (checkbox.checked) {
+        // Add the strike-through class to the label
+        label.classList.add('text-decoration-line-through');
+        } else {
+        // Remove the strike-through class from the label
+        label.classList.remove('text-decoration-line-through');
+        }
+
         var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'dbupdatestatus.php', true);
+            xhr.open('POST', 'instructionupdate.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4 && xhr.status === 200) {

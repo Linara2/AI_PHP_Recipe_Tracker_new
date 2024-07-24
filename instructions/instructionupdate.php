@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Retrieve the current status of the item
-    $stmt = $conn->prepare("SELECT Status FROM Item WHERE ItemId = ?");
+    // Retrieve the current status of the instructions
+    $stmt = $conn->prepare("SELECT status FROM instructionss WHERE itemId = ?");
     $stmt->bind_param("i", $itemId);
     $stmt->execute();
     $stmt->store_result();
@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
 
-    // Update the status of the item
-    $stmt = $conn->prepare("UPDATE Item SET Status = ? WHERE ItemId = ?");
+    // Update the status of the instructions
+    $stmt = $conn->prepare("UPDATE instructionss SET status = ? WHERE itemId = ?");
     $stmt->bind_param("si", $newStatus, $itemId);
     $stmt->execute();
 
