@@ -42,7 +42,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background-color: #7d0000
+      background-color: #7d0000;
       padding: 40px 0;
     }
 
@@ -80,6 +80,9 @@
       margin-top: 1rem;
       margin-top: 190px;
     }
+    .buttonss {
+      margin-left: 20px;
+    }
 
     .features-section, .recipes-section {
       background-color: #000000;
@@ -94,10 +97,19 @@
     }
     .feature-carousel {
       display: flex;
-      overflow-x: auto;
+      overflow-x: scroll;
       padding: 20px;
+      margin-left: 20px;
+      width: 100%;
+      scroll-snap-type: x mandatory;
+    }
+    .feature-carousel::-webkit-scrollbar {
+      width: 0;
+      background: transparent;
     }
     .feature-item {
+      flex-shrink: 0;
+      scroll-snap-align: start;
       flex: 0 0 auto;
       width: 345px;
       margin-right: 24px;
@@ -126,9 +138,9 @@
         <div class="content">
           <h1 class="title">Homecook Book - better than an expensive cookery book</h1>
           <p>Unleash a world of variety culinary recipes and unleah your inner chef the easy way<br> with Bon Appétit. Keep track of all your favorite recipes, create shopping lists, and<br> discover new culinary delights. Start your cooking journey today!</p>
-          <div class="buttons">
+          <div class="buttons d-grid gap-4 d-md-flex justify-content">
             <a href="register.php" class="btn btn-outline-danger">Create an account</a>
-            <a href="login.php" class="btn btn-outline-danger">Already Registered?Login</a>
+            <a href="login.php" class=" buttonss btn btn-outline-danger">Already Registered?Login</a>
           </div>
         </div>
         </div>
@@ -146,6 +158,16 @@
                 <i class="bi bi-pencil-square"></i>
                 <h3>Add Your Own Recipes</h3>
                 <p>Keep track of your favorite recipes by adding them to your collection.</p>
+            </div>
+            <div class="feature-item">
+                <i class="bi bi-book"></i>
+                <h3>Discover New Recipes</h3>
+                <p>Explore new culinary delights from our extensive recipe database.</p>
+            </div>
+            <div class="feature-item">
+                <i class="bi bi-book"></i>
+                <h3>Discover New Recipes</h3>
+                <p>Explore new culinary delights from our extensive recipe database.</p>
             </div>
             <div class="feature-item">
                 <i class="bi bi-book"></i>
