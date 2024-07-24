@@ -180,7 +180,7 @@
                   if($search==''){
                     $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
                   }
-                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' AND recipeName LIKE '%$search%' ORDER BY createdDate DESC";
+                  $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' AND (recipeName LIKE '%$search%' OR ingredients LIKE '%$search%') ORDER BY createdDate DESC";
                 }else{
                   $sql = "SELECT recipeName, createdDate, ingredients, source FROM my_recipe WHERE email='$email' ORDER BY createdDate DESC";
                 }
