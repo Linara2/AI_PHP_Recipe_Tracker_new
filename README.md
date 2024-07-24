@@ -12,12 +12,10 @@ View Recipe Details: Users can view detailed information about a recipe.
 Edit Recipes: Users can edit existing recipes.
 Delete Recipes: Users can delete recipes from their collection.
 
-Technologies Used
+Technologies Used:
 
-Frontend: HTML, CSS, React.js
-
-Backend:
-
-Database: XAMPP
-
-Other Tools: Git
+HTML
+CSS
+React.js
+XAMPP
+Git
