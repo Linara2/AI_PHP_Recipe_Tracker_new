@@ -95,14 +95,15 @@
     .features-section h2{
       font-size: 3.2rem;
       margin-top: 40px;
-      margin-bottom: 30px;
-      color: #29293d;/*recipes heading*/
+      margin-bottom: 40px;
+      color: lightgray;/*recipes heading*/
     }
     .recipes-section h2 {
       font-size: 3.2rem;
       margin-top: -5px;
-      margin-bottom: 30px;
-      color: #29293d;/*recipes heading*/
+      margin-top: -30px;
+      margin-bottom: 50px;
+      color: lightgray;/*recipes heading*/
     }
     .feature-carousel {
       display: flex;

@@ -21,11 +21,11 @@
         }
         .container {
           max-width: 470px;
-          margin-top: 90px;
+          margin-top: 100px;
           text-align: center;
-          background-color: #ffe6e6;
-          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.3);
           padding: 20px;
+          z-index: 1;
         }
         h6{
           color: rgb(124, 132, 177);
@@ -38,35 +38,36 @@
           border: 1px solid rgb(0, 0, 0);
           padding: 20px;
           border-radius: 10px;
+          z-index: 2;
         }
-        .container::before {
-          content: "";
+        .video-background {
           position: absolute;
-          top: -20px;
-          left: -20px;
-          right: 0px;
-          bottom: 0px;
-          background-image: url("designs/images/foods.jpg");
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
           z-index: -1;
+          border-radius: 10px;
         }
       </style>
-      <div class="containers">
       <div class="container">
+        <video autoplay muted loop class="video-background">
+          <source src="designs\images\recipe\test8.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
        <div class="form-container">
-        <h1 class="fw-bold" class="mb-3">Bon Appétit Register</h1>
-        <h6 class="fst-italic" class="mb-5">Already have an account? Login here and start your Recipe Road</h6>
+       <h1 class="fw-bold mb-3" style="color: darkred; font-weight: bold; text-shadow: 0 0 2px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.1);">Bon Appétit Login</h1>
+        <h6 class="fst-italic" class="mb-3" style="color: black; margin-top: 25px;">Welcome to Bon Appétit! Enter your credentials to start your Recipe Road</h6>
         <form action="dblogin.php" method="POST">
             <div class="mb-3">
-              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
+              <input type="email" name="email" class="form-control border-danger" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address" style="font-weight: bold; margin-top: 25px;">
             </div>
             <div class="mb-3">
-              <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <input type="password" name="pass" class="form-control border-danger" id="exampleInputPassword1" placeholder="Password" style="font-weight: bold;">
             </div>
-            <button type="submit" class="btn btn-outline-danger">Login</button>
-            <p class="mt-3">Doesn't have an account yet? <a href="register.php">Sign Up</a></p>
+            <button type="submit" class="btn btn-danger" style="margin-top: 9px;">Login</button>
+            <p class="mt-3" style="font-weight: bold;">Don't have an account yet?  <a href="register.php" style="color: darkred;">Sign Up</a></p>
           </form>
           <?php
             if(isset($_GET['error'])) {
