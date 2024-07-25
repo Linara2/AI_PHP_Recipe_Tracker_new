@@ -23,7 +23,7 @@
           max-width: 470px;
           margin-top: 50px;
           text-align: center;
-          background-color: lightblue;
+          background-color: #ffe6e6;
           border-radius: 10px;
           padding: 20px;
         }
@@ -38,6 +38,19 @@
           border: 1px solid rgb(0, 0, 0);
           padding: 20px;
           border-radius: 10px;
+        }
+        .container::before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          right: 0px;
+          bottom: 0px;
+          background-image: url("designs/images/mainsss.jpg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          z-index: -1;
         }
       </style>
       
@@ -59,7 +72,7 @@
             <div class="mb-3">
               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-outline-success">Sign Up</button>
+            <button type="submit" class="btn btn-outline-danger">Sign Up</button>
             <p class="mt-3">Already have an account? <a href="login.php">Login</a></p>
           </form>
           <?php

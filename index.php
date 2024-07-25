@@ -184,9 +184,7 @@
         color: lightcyan;
         transform: rotateY(180deg);
         padding: 10px;
-      }
-      
-                        
+      }                     
     </style>
 
       <div class="homepage">

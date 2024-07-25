@@ -23,7 +23,7 @@
           max-width: 470px;
           margin-top: 90px;
           text-align: center;
-          background-color: lightblue;
+          background-color: #ffe6e6;
           border-radius: 10px;
           padding: 20px;
         }
@@ -39,12 +39,25 @@
           padding: 20px;
           border-radius: 10px;
         }
+        .container::before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          right: 0px;
+          bottom: 0px;
+          background-image: url("designs/images/foods.jpg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          z-index: -1;
+        }
       </style>
-      
+      <div class="containers">
       <div class="container">
        <div class="form-container">
         <h1 class="fw-bold" class="mb-3">Bon Appétit Register</h1>
-        <h6 class="fst-italic" class="mb-5">Doesn't have an account? Create an account and start your Recipe Road</h6>
+        <h6 class="fst-italic" class="mb-5">Already have an account? Login here and start your Recipe Road</h6>
         <form action="dblogin.php" method="POST">
             <div class="mb-3">
               <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email Address">
@@ -52,7 +65,7 @@
             <div class="mb-3">
               <input type="password" name="pass" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-outline-success">Login</button>
+            <button type="submit" class="btn btn-outline-danger">Login</button>
             <p class="mt-3">Doesn't have an account yet? <a href="register.php">Sign Up</a></p>
           </form>
           <?php
@@ -65,7 +78,7 @@
           ?>
       </div>
     </div>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
