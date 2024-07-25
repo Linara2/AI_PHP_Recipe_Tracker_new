@@ -17,7 +17,7 @@
 
       <style>
         body{
-          background-color: beige;
+          background-color: red;
         }
         .container {
           max-width: 470px;

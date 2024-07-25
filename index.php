@@ -92,10 +92,17 @@
       padding: 40px 0;
       text-align: center;
     }
-    .features-section h2, .recipes-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: #f19191;/*recipes heading*/
+    .features-section h2{
+      font-size: 3.2rem;
+      margin-top: 40px;
+      margin-bottom: 30px;
+      color: #29293d;/*recipes heading*/
+    }
+    .recipes-section h2 {
+      font-size: 3.2rem;
+      margin-top: -5px;
+      margin-bottom: 30px;
+      color: #29293d;/*recipes heading*/
     }
     .feature-carousel {
       display: flex;
@@ -122,8 +129,6 @@
       height: 330px;
       margin-right: 24px;
       padding: 35px;
-      background-color: rgba(153, 0, 0, 0.8); /* Adjust the RGBA values to control the color and transparency */
-      background-blend-mode: screen; /* Enables transparency */
       color: #ffffff;/*letters inside the card*/
       border-radius: 20px;
       text-align: center;
@@ -178,8 +183,9 @@
         background-color: #680000;
         color: lightcyan;
         transform: rotateY(180deg);
-        padding: 20px;
+        padding: 10px;
       }
+      
                         
     </style>
 
@@ -199,43 +205,43 @@
       <div class="features-section">
         <h2>Features</h2>
         <div class="feature-carousel">
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-book"></i>
               <img src="designs\images\output.gif" alt="Feature 2" class="feature-image">
               <h3>Discover New Recipes</h3>
               <p>What recipe are you looking for today?Explore new culinary delights by title and ingredients.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-pencil-square"></i>
               <img src="designs\images\onlines.gif" alt="Feature 2" class="feature-image">
               <h3>Add Your Own Recipes</h3>
               <p>Keep track of your favorite recipes by adding them to your collection.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-search"></i>
               <img src="designs\images\chef.gif" alt="Feature 2" class="feature-image">
               <h3>View Recipe Details</h3>
               <p>View detailed information about your favorite recipes from your collection.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-book"></i>
               <img src="designs\images\burger.gif" alt="Feature 2" class="feature-image">
               <h3>Remove Recipes From Collection</h3>
               <p>Remove recipes from your cookbok that are are no longer needed.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-book"></i>
               <img src="designs\images\video.gif" alt="Feature 2" class="feature-image">
               <h3>Watch Recipe Videos</h3>
               <p>Watch video tutorials on how to prepare your favorite recipes through the URL you have added.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-book"></i>
               <img src="designs\images\tests.gif" alt="Feature 2" class="feature-image">
               <h3>Add Instructions To Recipes</h3>
               <p>Add your steps to your favorite recipes to make them easier to follow and remember.</p>
           </div>
-          <div class="feature-item">
+          <div class="feature-item" style="background: linear-gradient(to bottom, #b30000, #4d0000);">
               <i class="bi bi-book"></i>
               <img src="designs\images\checker.gif" alt="Feature 2" class="feature-image">
               <h3>Mark Instructions As Completed</h3>
@@ -247,62 +253,72 @@
     <div class="recipes-section">
       <h2>Latest Recipes</h2>
       <div class="row justify-content-center">
-      <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 60px;">
-          <div class="card recipe-card">
+      <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: -30px;">
+      <div class="card recipe-card" style="box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);">
             <div class="card-inner">
               <div class="card-front">
-                <img src="designs/images/diet.png" alt="Recipe 1">
-                <h3>Vegetable Stir-fry</h3>
+                <img src="designs/images/salad.png" alt="Recipe 1">
+                <h3 style="margin-top: 30px;">Caprese Salad</h3>
               </div>
               <div class="card-back">
-                <h3>Vegetable Stir-fry</h3>
-                <p>A quick and easy vegetable stir-fry that's packed with flavor.</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
+                <p style="color: #c5bfbf;">Ingredients: Tomatoes, Mozarela Cheese, Basil, Salt, Pepper
+                <p>Slice the mozzarella and tomatoes into thin rounds.
+                    Arrange them alternately on a plate with basil leaves.
+                    Season with salt and pepper to taste.</p>
+                <a href="dashboard.php" class="btn btn-dark btn-lg view-recipe-button" style="position: relative; overflow: hidden; border: none; outline: none; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); font-size: 15px; padding: 4px 13px;">
+                  <span style="position: relative; z-index: 1;">View More...</span>
+                  <span style="position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; background: rgba(255, 255, 255, 0.5); filter: blur(10px); transform: scale(0.5); z-index: -1;"></span></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 60px;">
-          <div class="card recipe-card">
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 70px;">
+          <div class="card recipe-card" style="box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);">
             <div class="card-inner">
               <div class="card-front">
-                <img src="designs/images/diet.png" alt="Recipe 2">
-                <h3>Chicken Alfredo</h3>
+                <img src="designs/images/sandwich.png" alt="Recipe 2">
+                <h3 style="margin-top: 30px;">Cheese Quesadilla</h3>
               </div>
               <div class="card-back">
-                <h3>Chicken Alfredo</h3>
-                <p>A creamy and delicious chicken Alfredo pasta dish.</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
+                <p style="color: #c5bfbf;">Ingredients: 2 flour tortillas, 1 cup cheese
+                <p>Place one tortilla in the skillet, sprinkle with cheese, and top with the second tortilla. Cook until the cheese is melted and the tortillas are golden brown.</p>
+                <a href="dashboard.php" class="btn btn-dark btn-lg view-recipe-button" style="position: relative; overflow: hidden; border: none; outline: none; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); font-size: 15px; padding: 4px 13px;">
+                  <span style="position: relative; z-index: 1;">View More...</span>
+                  <span style="position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; background: rgba(255, 255, 255, 0.5); filter: blur(10px); transform: scale(0.5); z-index: -1;"></span></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 60px;">
-          <div class="card recipe-card">
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 70px;">
+          <div class="card recipe-card" style="box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);">
             <div class="card-inner">
               <div class="card-front">
-                <img src="designs/images/diet.png" alt="Recipe 3">
-                <h3>Beef Tacos</h3>
+                <img src="designs/images/ice-cream.png" alt="Recipe 3">
+                <h3 style="margin-top: 30px;">Fruit and Yogurt Parfait</h3>
               </div>
               <div class="card-back">
-                <h3>Beef Tacos</h3>
-                <p>Delicious beef tacos with fresh toppings and a zesty sauce.</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
+                <p style="color: #c5bfbf;">Ingredients: Granola, Breek Yogurt, Mixed Berries (strawberries, blueberries, raspberries)</p>
+                <p>Layer yogurt, granola, and berries in a glass or bowl. Repeat the layers. Drizzle with honey if desired.</p>
+                <a href="dashboard.php" class="btn btn-dark btn-lg view-recipe-button" style="position: relative; overflow: hidden; border: none; outline: none; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); font-size: 15px; padding: 4px 13px;">
+                  <span style="position: relative; z-index: 1;">View More...</span>
+                  <span style="position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; background: rgba(255, 255, 255, 0.5); filter: blur(10px); transform: scale(0.5); z-index: -1;"></span></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 60px;">
-          <div class="card recipe-card">
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-lg-8 mb-md-6 mb-sm-4" style="margin-left: 70px;">
+          <div class="card recipe-card" style="box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);">
             <div class="card-inner">
               <div class="card-front">
-                <img src="designs/images/diet.png" alt="Recipe 4">
-                <h3>Chocolate Cake</h3>
+                <img src="designs/images/fruit.png" alt="Recipe 4">
+                <h3 style="margin-top: 30px;">Mini Caprese Skewers</h3>
               </div>
               <div class="card-back">
-                <h3>Chocolate Cake</h3>
-                <p>A rich and moist chocolate cake perfect for any occasion.</p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
+                <p style="color: #c5bfbf;">Ingredients: Cheese, Tomatoes, Mozzarella balls, Mushrooms</p>
+                <p>Thread a cherry tomato, mozzarella ball, and mushroom onto a skewer. Put skewers on a plate and serve. </p>
+                <a href="dashboard.php" class="btn btn-dark btn-lg view-recipe-button" style="position: relative; overflow: hidden; border: none; outline: none; box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); font-size: 15px; padding: 4px 13px;">
+                  <span style="position: relative; z-index: 1;">View More...</span>
+                  <span style="position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; background: rgba(255, 255, 255, 0.5); filter: blur(10px); transform: scale(0.5); z-index: -1;"></span></a>
               </div>
             </div>
           </div>
