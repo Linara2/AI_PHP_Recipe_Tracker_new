@@ -10,7 +10,7 @@
             if (basename($_SERVER['PHP_SELF']) === 'index.php') {
             }else{
                 echo '<li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link active" aria-current="page" style="color: lightgray; margin-right: 20px; font-size: 18px;" href="index.php">Home</a>
               </li>';
             }
             ?>

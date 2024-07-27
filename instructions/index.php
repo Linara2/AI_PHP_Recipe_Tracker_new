@@ -33,12 +33,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 20px;">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                <a class="nav-link" aria-current="page" style="color: lightgray; margin-right: 20px; font-size: 18px;" href="../index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../dashboard.php">Dashboard</a>
+                <a class="nav-link" aria-current="page" style="color: lightgray; margin-left: -5px; font-size: 18px;" href="../dashboard.php">Dashboard</a>
               </li>
             </ul>
             <form class="d-flex me-md-4" role="search">
@@ -111,41 +111,49 @@
           right: 2px; 
           transform: translateX(-10%); 
         }
-      </style>
+        .video-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 110%;
+          object-fit: cover;
+          z-index: -1;
+          border-radius: 10px;
+        }
+        </style>
+      
+      <div class="container">
+        <video autoplay muted loop class="video-background">
+          <source src="../designs/images/recipe/test4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       
       <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-4 mt-2"><?php echo ($lname); ?><br/></h1>
-        <span class="text-secondary fs-3 mt-0 pt-0"><?php echo ($cdate); ?></span>
+        <h1 class="fw-bold" class="mb-4" style="color: #bfacac; font-family: 'Times New Roman', Times, serif; font-weight: bold; text-shadow: 0 0 2px rgba(255, 0, 0, 0.3), 0 0 2px rgba(255, 0, 0, 0.3), 0 0 2px rgba(255, 0, 0, 0.1); margin-top: -22px;"><?php echo ($lname); ?><br/></h1>
+        <span class="text-secondary fs-3 mt-0 pt-0" style="font-weight: bold;"><?php echo ($cdate); ?></span>
         <form action="" method="GET" class="row row-cols-lg-auto g-2 align-items-center position-absolute">
          <div class="col-12">
           <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
-          <div class="input-group">
-            
-            <div class="input-group-text">🔍</div>
-            <input type="text" name="search" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search">
          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-outline-dark">Search</button>
-        </div> 
         </form>
         <div id="alertBox" class="alert alert-success d-none" role="alert">
         New recipe has been added!
         </div>
         <form id="recipeForm" action="instructions.php?myrecipes=<?php echo ($lname); ?>&cdate=<?php echo ($cdate); ?>" method="POST">
-            <div class="form-row mt-4">
+            <div class="form-row" style="margin-top: -10px;">
                 <div class="col-8">
-                    <label for="instructions" class="sr-only">Instruction</label>
-                    <input type="text" id="instructions" name="instruction" class="form-control" placeholder="Add your instructions" required>
+                    <label for="instructions" class="sr-only" style="font-weight: bold; margin-top: 40px; color:lightgray; margin-bottom:15px">Instruction</label>
+                    <input type="text" id="instructions" name="instruction" class="form-control border-danger" placeholder="Add your instructions" required>
                 </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-outline-success">Add Instruction</button>
+                <div class="col" style="margin-top: 70px;">
+                    <button type="submit" class="btn btn-outline-danger">Add Instruction</button>
                 </div>
 
             </div>
         </form>
         <div style="text-align: left">
-        <ul class="list-group">
+        <ul class="list-group" style="margin-top: 30px;">
                 <?php
                 // Establish a connection to the database
                 $servername = "localhost";
@@ -181,7 +189,7 @@
                       <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
                       <label class="form-check-label ' . ($row['status'] == '1' ? 'text-decoration-line-through' : '') . '" for="' . $row['itemId'] . '">' . $row["instructions"] . '</label>
                       ');
-                       echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
+                       echo "<a class='btn btn-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
                     }
                 } else {
                     echo "<tr><td colspan='6'>No data available.</td></tr>";
@@ -193,19 +201,6 @@
         </ul>
         </div>
        </div>
-
-        <div class="modal fade modal-custom" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    Are you sure you want to delete this recipe?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Yes</button>
-                </div>
-            </div>
-        </div>
     </div>
     
     <script>

@@ -26,9 +26,9 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 20px;">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="index.php">Home</a>
+                <a class="nav-link" aria-current="page" style="color: lightgray; margin-right: 20px; font-size: 18px;" href="index.php">Home</a>
               </li>
             </ul>
             <form class="d-flex me-md-4" role="search">
@@ -65,17 +65,46 @@
           border: 1px solid rgb(0, 0, 0);
           padding: 20px;
           border-radius: 10px;
+          z-index: 2;
+        }
+        .video-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+          border-radius: 10px;
+        }
+        .card-container {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+        }
+        .card {
+          width: 14rem;
+          border: 3px solid black;
+          background-color: #cfbfbf;
         }
       </style>
-      
+    
+    <div class="container">
+        <video autoplay muted loop class="video-background">
+          <source src="designs\images\recipe\test7.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
     <div class="container-md text-center mt-5" style="max-width: 600px;">
-      <h1 class="fw-bold" class="mb-3">Bon Appétit Dashboard</h1>
+      <h1 class="fw-bold" class="mb-3" style="color: lightgray; font-weight: bold; text-shadow: 0 0 2px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.1);">Culinary Delights Await: Dive into Bon Appétit</h1>
       </div>
     </div>
+    
     <div class="d-flex justify-content-center mt-5">
+      <div class="card-container">
     <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black;">
       <a href="recipe/index.php">
-        <img src="designs/images/recipe/extras.png" class="card-img-top" alt="...">
+        <img src="designs/images/cookbooks.gif" class="card-img-top" alt="...">
       </a>
         <div class="card-body text-center">
             <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">Add Recipe</h5>
@@ -83,10 +112,18 @@
     </div>
     <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
         <a href="myrecipe/index.php">
-            <img src="designs/images/recipe/bento.png" class="card-img-top" alt="...">
+            <img src="designs/images/chefs.gif" class="card-img-top" alt="...">
         </a>
         <div class="card-body text-center">
             <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">My Recipes</h5>
+        </div>
+    </div>
+    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
+      <a href="quickrecipes/index.php">
+        <img src="designs/images/cooksss.gif" class="card-img-top" alt="...">
+      </a>
+        <div class="card-body text-center">
+            <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">Quick Recipe</h5>
         </div>
     </div>
     </div>

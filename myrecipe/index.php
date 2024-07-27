@@ -26,12 +26,12 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 20px;">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                <a class="nav-link" aria-current="page" style="color: lightgray; margin-right: 20px; font-size: 18px;" href="../index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../dashboard.php">Dashboard</a>
+                <a class="nav-link" aria-current="page" style="color: lightgray; margin-left: -5px; font-size: 18px;" href="../dashboard.php">Dashboard</a>
               </li>
             </ul>
             <form class="d-flex me-md-4" role="search">
@@ -42,6 +42,9 @@
       </nav>
 
       <style>
+        body{
+          background-color: black;
+        }
         .btn-logout{
           width: 140px;
         }
@@ -51,10 +54,6 @@
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-size: 30px;
-        }
-        h6{
-          color: rgb(124, 132, 177);
-          font-size: medium;
         }
         .form-control {
           text-align: center;
@@ -110,8 +109,8 @@
         }
       </style>
       
-      <div class="container-md text-center mt-5" style="max-width: 900px;">
-        <h1 class="fw-bold" class="mb-4">Discover Recipes🥣</h1>
+      <div class="container-md text-center mt-5" style="max-width: 1000px;">
+      <h1 class="fw-bold mb-3" style="color: darkred; font-weight: bold; text-shadow: 0 0 2px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.3), 0 0 3px rgba(255, 0, 0, 0.1);">Discover Recipes🥣</h1>
         <form action="" method="GET" class="row row-cols-lg-auto g-2 align-items-center position-absolute">
          <div class="col-12">
           <label class="visually-hidden" for="inlineFormInputGroupUsername">Search</label>
@@ -122,40 +121,41 @@
          </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-outline-dark">Search</button>
+          <button type="submit" class="btn btn-outline-danger">Search</button>
         </div>
         </form>
         <div id="alertBox" class="alert alert-success d-none" role="alert">
         New recipe has been added!
         </div>
         <form id="recipeForm" action="dbmyrecipe.php" method="POST">
-            <div class="form-row mt-5">
+            <div class="form-row mt-4.5">
                 <div class="col-2">
-                    <label for="recipeName" class="sr-only">Recipe Name</label>
+                    <label for="recipeName" class="sr-only" style="font-weight: bold; margin-top: 25px; color:lightgray; margin-bottom:15px">Recipe Name</label>
                     <input type="text" id="recipeName" name="recipeName" class="form-control" placeholder="Recipe Name" required>
                 </div>
-                <div class="col-3">
-                    <label for="ingredients" class="sr-only">Ingredients</label>
+                <div class="col-4">
+                    <label for="ingredients" class="sr-only" style="font-weight: bold; margin-top: 25px; color:lightgray; margin-bottom:15px">Ingredients</label>
                     <input type="text" id="ingredients" name="ingredients" class="form-control" placeholder="Ingredients" required>
                 </div>
                 <div class="col-3">
-                    <label for="source" class="sr-only">Source Link</label>
+                    <label for="source" class="sr-only" style="font-weight: bold; margin-top: 25px; color:lightgray; margin-bottom:15px">Source Link</label>
                     <input type="text" id="source" name="source" class="form-control" placeholder="Source Link" required>
                 </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-outline-success">Add Recipe</button>
+                <div class="col mt-5">
+                    <button type="submit" class="btn btn-outline-danger">Add Recipe</button>
                 </div>
                 
                 
             </div>
         </form>
-        <table class="table mt-5 table-striped">
-            <thead>
+        <table class="table table-striped border-dark mt-5 mb-5">
+        <thead class="table-danger">
                 <tr>
                     <th>Date Created</th>
                     <th>Recipe Name</th>
                     <th>Ingredients</th>
                     <th>Source Link</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -197,7 +197,7 @@
                         echo "<td class=p-3><a href='../instructions/index.php?myrecipes=".$lname . "&cdate=" . $cdate . "'>" . $lname . "</a></td>";
                         echo "<td class=p-3>" . $row["ingredients"] . "</td>";
                         echo "<td class=p-3><a href='" . $row["source"] . "' target='_blank'>" . $row["source"] . "</a></td>";
-                        echo "<td class='p-3'> <button class='btn btn-outline-danger' onclick='confirmDelete(\"" . $row["recipeName"] . "\")'>Delete</button> </td>";
+                        echo "<td class='p-3'> <button class='btn btn-danger' onclick='confirmDelete(\"" . $row["recipeName"] . "\")'>Delete</button> </td>";
                         echo "</tr>";
                     }
                 } else {
