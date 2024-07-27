@@ -102,7 +102,7 @@
     
     <div class="d-flex justify-content-center mt-5">
       <div class="card-container">
-    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black;">
+    <div class="card p-4 rounded-5 mt-5" style="width: 15rem; border: 3px solid black;">
       <a href="recipe/index.php">
         <img src="designs/images/cookbooks.gif" class="card-img-top" alt="...">
       </a>
@@ -110,7 +110,7 @@
             <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">Add Recipe</h5>
         </div>
     </div>
-    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
+    <div class="card p-4 rounded-5 mt-5" style="width: 15rem; border: 3px solid black; margin-left: 100px;">
         <a href="myrecipe/index.php">
             <img src="designs/images/chefs.gif" class="card-img-top" alt="...">
         </a>
@@ -118,7 +118,7 @@
             <h5 class="card-title fw-bold" style="font-size: 1.5rem; margin-top: 15px; color: darkred;">My Recipes</h5>
         </div>
     </div>
-    <div class="card p-4 rounded-5 mt-5" style="width: 14rem; border: 3px solid black; margin-left: 100px;">
+    <div class="card p-4 rounded-5 mt-5" style="width: 15rem; border: 3px solid black; margin-left: 100px;">
       <a href="quickrecipes/index.php">
         <img src="designs/images/cooksss.gif" class="card-img-top" alt="...">
       </a>
