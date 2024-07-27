@@ -149,7 +149,7 @@
                 
             </div>
         </form>
-        <table class="table table-striped border-dark mt-5 mb-5">
+        <table class="table table-striped border-dark mt-5 mb-5" style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
         <thead class="table-danger">
                 <tr>
                     <th>Date Created</th>
