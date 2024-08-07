@@ -17,6 +17,27 @@
     <style>
       .body {
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .footer img {
+      margin-right: 10px;
+      border-radius: 50%;
+      margin-bottom: 25px;
+      margin-top: 20px;
+    }
+    
+    .footer img:hover {
+      transform: scale(1.1);
+    }
+    .footer {
+      padding: 20px;
+      text-align: center;
+    }
+    .footer a{
+      margin-right: 10px;
+      color: #333;
+      text-decoration: none;
     }
     .container {
       max-width: 100%;
@@ -76,7 +97,7 @@
       left: 50%;
       transform: translateX(-90%);
       text-align: left;
-      color: bisque;
+      color:lightgoldenrodyellow;
       margin-bottom: 80px;      
     }
     .buttons {
@@ -193,7 +214,8 @@
         <div class="content">
           <h1 class="title">Homecook Book - better than an expensive cookery book</h1>
           <p>Unleash a world of variety culinary recipes and unleah your inner chef the easy way<br> with Bon Appétit. Keep track of all your favorite recipes, create shopping lists, and<br> discover new culinary delights. Start your cooking journey today!</p>
-          <div class="buttons d-grid gap-4 d-md-flex justify-content">
+          <p>In Bon Appétit, every meal is a culinary adventure waiting to happen! Our recipe collection is a treasure trove of flavors from around the world, carefully curated to inspire both novice cooks and seasoned chefs. Whether you're craving a hearty breakfast, a light lunch, or a decadent dessert, you'll find a recipe that sparks joy and creativity in your kitchen. Dive into our easy-to-follow guides, explore new ingredients,<br> and share the love of cooking with friends and family.</p>
+          <div class="buttons d-grid gap-4 d-md-flex justify-content" style="margin-top: 80px;">
             <a href="register.php" class="btn btn-outline-danger">Create an account</a>
             <a href="login.php" class=" buttonss btn btn-outline-danger">Already Registered?Login</a>
           </div>
@@ -323,6 +345,22 @@
         </div>
       </div>
     </div>
+
+    <footer class="footer" style="background-color:#333;"> 
+        <a href="https://www.facebook.com/" target="_blank">
+          <img src="designs/images/facebook.png" alt="Facebook" width="46" height="46">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank">
+          <img src="designs/images/instagram.png" alt="Instagram" width="46" height="46">
+        </a>
+        <a href="https://www.twitter.com/" target="_blank">
+          <img src="designs/images/twitterr.png" alt="Twitter" width="46" height="46">
+        </a>
+        <a href="https://github.com/Linara2/" target="_blank">
+          <img src="designs/images/github.png" alt="GitHub" width="46" height="46">
+        </a>
+        <p class="copyright" style="font-size: 15px; color: white; font-weight: bold;">&copy; 2024 Bon Appétit Website. All rights reserved.</p>
+    </footer>
 
     
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

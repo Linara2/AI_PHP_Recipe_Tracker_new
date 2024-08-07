@@ -86,13 +86,38 @@
             margin-top: 10px;
         }
         .alert {
-        margin-top: 260px;
-        max-width: 300px;
-        padding: 10px;
-        font-size: 14px;
-        position: absolute;
-        top: 0;
-        right: 20px;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          background-color: #f2f2f2;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 500px;
+        }
+        .alert .icon {
+          margin-right: 10px;
+        }
+        
+        .alert .icon img {
+          vertical-align: middle;
+        }
+
+        .alert .message {
+          display: inline;
+        }
+
+        .alert .icon i {
+          color: #4CAF50;
+          font-size: 32px;
         }
         .modal-custom {
             top: 30%;
@@ -120,8 +145,16 @@
           <button type="submit" class="btn btn-outline-danger">Search</button>
         </div>
         </form>
-        <div id="alertBox" class="alert alert-success d-none" role="alert">
-        New recipe has been added!
+        <div id="alertBox" class="alert alert-success d-none" style="background-color: #C1E1C1; color: black; width: 500px; font-size: 16px; font-weight: bold;" role="alert">
+          <div class="icon">
+            <img src="../designs/images/check.png" alt="Success Icon" width="25" height="25">
+          </div>
+          <div class="message" style="color: #4CAF50;">    
+            Sucesss!&nbsp;
+          </div>
+          <div class="message" style="font-weight: lighter;">    
+           New recipe has been added successfully!
+          </div>
         </div>
         <form id="recipeForm" action="dbrecipe.php" method="POST">
             <div class="form-row mt-5">
@@ -213,12 +246,12 @@
 
         <div class="modal fade modal-custom" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="border-radius: 1px; border: 1px solid black;">
                 <div class="modal-body">
                     Are you sure you want to delete this recipe?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="noButton">No</button>
                     <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Yes</button>
                 </div>
             </div>
@@ -261,6 +294,11 @@
 
       document.getElementById('confirmDeleteBtn').addEventListener('click', function() {
         window.location.href = 'dbrecipe.php?delid=' + deleteId;
+      });
+
+      document.getElementById('noButton').addEventListener('click', function() {
+        const confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
+        confirmationModal.hide();
       });
 
       document.getElementById('searchInput').addEventListener('input', function() {
