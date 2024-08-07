@@ -147,7 +147,7 @@
                     <input type="text" id="instructions" name="instruction" class="form-control border-danger" placeholder="Add your instructions" required>
                 </div>
                 <div class="col" style="margin-top: 70px;">
-                    <button type="submit" class="btn btn-outline-danger">Add Instruction</button>
+                    <button type="submit" class="btn btn-danger">Add Instruction</button>
                 </div>
 
             </div>
@@ -185,11 +185,11 @@
                 if ($result) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
-                      echo('<li class="list-group-item fs-6">
-                      <input class="form-check-input me-1" type="checkbox" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
+                      echo('<li class="list-group-item fs-6" style="border: 1px solid lightgrey">
+                      <input class="form-check-input me-1" type="checkbox" style="border: 1px solid black" value="" id="' . $row['itemId'] . '" onchange="updateStatus(' . $row['itemId'] . ')"' . ($row['status'] == '1' ? ' checked' : '') . '/>
                       <label class="form-check-label ' . ($row['status'] == '1' ? 'text-decoration-line-through' : '') . '" for="' . $row['itemId'] . '">' . $row["instructions"] . '</label>
                       ');
-                       echo "<a class='btn btn-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
+                       echo "<a class='btn btn-outline-danger btn-sm float-end' href="."instructions.php?delid=".$row["itemId"]."&myrecipes=".$lname."&cdate=".$cdate.">Delete</a></li>";
                     }
                 } else {
                     echo "<tr><td colspan='6'>No data available.</td></tr>";
