@@ -194,7 +194,7 @@
                       $cdate = $row["createdDate"];
                         echo "<tr>";
                         echo "<td class=p-3>" . $row["createdDate"] . "</td>";
-                        echo "<td class=p-3><a href='../instructions/index.php?myrecipes=".$lname . "&cdate=" . $cdate . "'>" . $lname . "</a></td>";
+                        echo "<td class=p-3><a href='../instructions/index.php?myrecipes=".$lname . "&cdate=" . $cdate . "' style='text-decoration: none; color: black;'>" . $lname . "</a></td>";
                         echo "<td class=p-3>" . $row["ingredients"] . "</td>";
                         echo "<td class=p-3><a href='" . $row["source"] . "' target='_blank'>" . $row["source"] . "</a></td>";
                         echo "<td class='p-3'> <button class='btn btn-danger' onclick='confirmDelete(\"" . $row["recipeName"] . "\")'>Delete</button> </td>";
